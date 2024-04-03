@@ -5,12 +5,12 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       required: [true, "role is required"],
-      enum: ["admin", "organisation", "donor", "hospital"],
+      enum: ["admin", "organisation", "user", "hospital"],
     },
     name: {
       type: String,
       required: function () {
-        if (this.role == "admin" || this.role == "user") {
+        if (this.role === "user" || this.role === "admin") {
           return true;
         }
         return false;
@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
     organisationName: {
       type: String,
       required: function () {
-        if (this.role == "organisation") {
+        if (this.role === "organisation") {
           return true;
         }
         return false;
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
     hospitalName: {
       type: String,
       required: function () {
-        if (this.role == "hospital") {
+        if (this.role === "hospital") {
           return true;
         }
         return false;
@@ -36,26 +36,26 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      require: [true, "email is required"],
+      required: [true, "email is required"],
       unique: true,
     },
     password: {
       type: String,
-      require: [true, "password is required"],
+      required: [true, "password is requied"],
     },
     website: {
       type: String,
     },
     address: {
       type: String,
-      require: [true, "address is required"],
+      required: [true, "address is required"],
     },
     phone: {
       type: String,
-      require: [true, "phone number is required"],
+      required: [true, "phone numbe is required"],
     },
   },
-  { timeStamps: true }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("users", userSchema);

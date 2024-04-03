@@ -1,11 +1,11 @@
 const userModel = require("../models/userModel");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken"); //package used for security, generates a token which can decrypt the password
+const jwt = require("jsonwebtoken");
 
 const registerController = async (req, res) => {
   try {
     const exisitingUser = await userModel.findOne({ email: req.body.email });
-    //check if the user exists already
+    //validation
     if (exisitingUser) {
       return res.status(200).send({
         success: false,
@@ -16,14 +16,13 @@ const registerController = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
     req.body.password = hashedPassword;
-    //rest data (saving the data)
+    //rest data
     const user = new userModel(req.body);
     await user.save();
     return res.status(201).send({
-      //something has been created
       success: true,
       message: "User Registerd Successfully",
-      user, //printing the user to see which one is screated
+      user,
     });
   } catch (error) {
     console.log(error);
@@ -35,35 +34,27 @@ const registerController = async (req, res) => {
   }
 };
 
-//Login call Back
+//login call back
 const loginController = async (req, res) => {
   try {
     const user = await userModel.findOne({ email: req.body.email });
     if (!user) {
       return res.status(404).send({
         success: false,
-        message: "User Not Found",
+        message: "Invalid Credentials",
       });
     }
-    //Checking role
-    if (user.role !== req.body.role) {
-      return res.status(500).send({
-        success: false,
-        message: "Role doesn't match",
-      });
-    }
-    //Checking the passowd (if it's correct or not)
-    const checkPassword = await bcrypt.compare(
+    //compare password
+    const comparePassword = await bcrypt.compare(
       req.body.password,
       user.password
     );
-    if (!checkPassword) {
-      return res.status(404).send({
+    if (!comparePassword) {
+      return res.status(500).send({
         success: false,
         message: "Invalid Credentials",
       });
     }
-    //sign -> creates the token(create on the basis on user id[encrypt], secret key, expiration)
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
@@ -96,7 +87,7 @@ const currentUserController = async (req, res) => {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Unable to get the User",
+      message: "unable to get current user",
       error,
     });
   }
