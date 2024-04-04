@@ -9,7 +9,6 @@ const inventorySchema = new mongoose.Schema(
     },
     bloodGroup: {
       type: String,
-      required: [true, "Blood group is required"],
       enum: ["O+", "O-", "AB+", "AB-", "A+", "A-", "B+", "B-"],
     },
     quantity: {
