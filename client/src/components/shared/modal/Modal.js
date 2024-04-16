@@ -17,7 +17,7 @@ const Modal = () => {
       }
       const { data } = await API.post("/inventory/create-inventory", {
         email,
-        organisation: user?._id,
+        organization: user?._id,
         inventoryType,
         bloodGroup,
         quantity,
@@ -105,7 +105,7 @@ const Modal = () => {
                 <option value={"B-"}>B-</option>
               </select>
               <InputType
-                labelText={"Donar Email"}
+                labelText={"Donor Email"}
                 labelFor={"donarEmail"}
                 inputType={"email"}
                 value={email}

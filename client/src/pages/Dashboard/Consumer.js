@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 const Consumer = () => {
   const { user } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
-  //find donar records
-  const getDonars = async () => {
+  //find donor records
+  const getDonors = async () => {
     try {
       const { data } = await API.post("/inventory/get-inventory-hospital", {
         filters: {
@@ -26,7 +26,7 @@ const Consumer = () => {
   };
 
   useEffect(() => {
-    getDonars();
+    getDonors();
   }, []);
 
   return (

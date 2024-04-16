@@ -3,10 +3,10 @@ import Layout from "../../components/shared/Layout/Layout";
 import API from "../../services/API";
 import moment from "moment";
 
-const Donar = () => {
+const Donor = () => {
   const [data, setData] = useState([]);
-  //find donar records
-  const getDonars = async () => {
+  //find donor records
+  const getDonors = async () => {
     try {
       const { data } = await API.get("/inventory/get-donars");
       //   console.log(data);
@@ -19,7 +19,7 @@ const Donar = () => {
   };
 
   useEffect(() => {
-    getDonars();
+    getDonors();
   }, []);
 
   return (
@@ -36,7 +36,7 @@ const Donar = () => {
         <tbody>
           {data?.map((record) => (
             <tr key={record._id}>
-              <td>{record.name || record.organisationName + " (ORG)"}</td>
+              <td>{record.name || record.organizationName + " (ORG)"}</td>
               <td>{record.email}</td>
               <td>{record.phone}</td>
               <td>{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
@@ -48,4 +48,4 @@ const Donar = () => {
   );
 };
 
-export default Donar;
+export default Donor;

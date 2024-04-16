@@ -6,9 +6,9 @@ import { handleLogin, handleRegister } from "../../../services/authService";
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("donar");
+  const [role, setRole] = useState("donor");
   const [name, setName] = useState("");
-  const [organisationName, setOrganisationName] = useState("");
+  const [organizationName, setOrganizationName] = useState("");
   const [hospitalName, setHospitalName] = useState("");
   const [website, setWebsite] = useState("");
   const [address, setAddress] = useState("");
@@ -27,7 +27,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               email,
               password,
               phone,
-              organisationName,
+              organizationName,
               address,
               hospitalName,
               website
@@ -42,13 +42,13 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               type="radio"
               className="form-check-input"
               name="role"
-              id="donarRadio"
-              value={"donar"}
+              id="donorRadio"
+              value={"donor"}
               onChange={(e) => setRole(e.target.value)}
               defaultChecked
             />
             <label htmlFor="adminRadio" className="form-check-label">
-              Donar
+              Donor
             </label>
           </div>
           <div className="form-check ms-2">
@@ -82,12 +82,12 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               type="radio"
               className="form-check-input"
               name="role"
-              id="organisationRadio"
-              value={"organisation"}
+              id="organizationRadio"
+              value={"organization"}
               onChange={(e) => setRole(e.target.value)}
             />
-            <label htmlFor="organisationRadio" className="form-check-label">
-              Organisation
+            <label htmlFor="organizationRadio" className="form-check-label">
+              Organization
             </label>
           </div>
         </div>
@@ -120,7 +120,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             case formType === "register": {
               return (
                 <>
-                  {(role === "admin" || role === "donar") && (
+                  {(role === "admin" || role === "donor") && (
                     <InputType
                       labelText={"Name"}
                       labelFor={"forName"}
@@ -130,14 +130,14 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       onChange={(e) => setName(e.target.value)}
                     />
                   )}
-                  {role === "organisation" && (
+                  {role === "organization" && (
                     <InputType
                       labelText={"Organisation Name"}
-                      labelFor={"fororganisationName"}
+                      labelFor={"fororganizationName"}
                       inputType={"text"}
-                      name={"organisationName"}
-                      value={organisationName}
-                      onChange={(e) => setOrganisationName(e.target.value)}
+                      name={"organizationName"}
+                      value={organizationName}
+                      onChange={(e) => setOrganizationName(e.target.value)}
                     />
                   )}
                   {role === "hospital" && (
@@ -205,7 +205,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             </p>
           ) : (
             <p>
-              ALready Usser Please
+              Already User Please
               <Link to="/login"> Login !</Link>
             </p>
           )}

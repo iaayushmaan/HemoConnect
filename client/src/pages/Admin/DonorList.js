@@ -3,15 +3,15 @@ import Layout from "../../components/shared/Layout/Layout";
 import moment from "moment";
 import API from "../../services/API";
 
-const OrgList = () => {
+const DonorList = () => {
   const [data, setData] = useState([]);
   //find donor records
   const getDonors = async () => {
     try {
-      const { data } = await API.get("/admin/org-list");
-      console.log(data);
+      const { data } = await API.get("/admin/donor-list");
+      //   console.log(data);
       if (data?.success) {
-        setData(data?.orgData);
+        setData(data?.donorData);
       }
     } catch (error) {
       console.log(error);
@@ -26,7 +26,7 @@ const OrgList = () => {
   const handelDelete = async (id) => {
     try {
       let answer = window.prompt(
-        "Are You SUre Want To Delete This Organisation",
+        "Are You SUre Want To Delete This Donor",
         "Sure"
       );
       if (!answer) return;
@@ -53,7 +53,7 @@ const OrgList = () => {
         <tbody>
           {data?.map((record) => (
             <tr key={record._id}>
-              <td>{record.organizationName}</td>
+              <td>{record.name || record.organizationName + " (ORG)"}</td>
               <td>{record.email}</td>
               <td>{record.phone}</td>
               <td>{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
@@ -73,4 +73,4 @@ const OrgList = () => {
   );
 };
 
-export default OrgList;
+export default DonorList;

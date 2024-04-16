@@ -7,13 +7,13 @@ import { useSelector } from "react-redux";
 const Donation = () => {
   const { user } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
-  //find donar records
-  const getDonars = async () => {
+  //find donor records
+  const getDonors = async () => {
     try {
       const { data } = await API.post("/inventory/get-inventory-hospital", {
         filters: {
           inventoryType: "in",
-          donar: user?._id,
+          donor: user?._id,
         },
       });
       if (data?.success) {
@@ -26,7 +26,7 @@ const Donation = () => {
   };
 
   useEffect(() => {
-    getDonars();
+    getDonors();
   }, []);
 
   return (
@@ -36,7 +36,7 @@ const Donation = () => {
           <thead>
             <tr>
               <th scope="col">Blood Group</th>
-              <th scope="col">Inventory TYpe</th>
+              <th scope="col">Inventory Type</th>
               <th scope="col">Quantity</th>
               <th scope="col">Email</th>
               <th scope="col">Date</th>

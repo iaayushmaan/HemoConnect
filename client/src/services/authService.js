@@ -20,7 +20,7 @@ export const handleRegister = (
   email,
   password,
   phone,
-  organisationName,
+  organizationName,
   address,
   hospitalName,
   website
@@ -34,7 +34,7 @@ export const handleRegister = (
         email,
         password,
         phone,
-        organisationName,
+        organizationName,
         address,
         hospitalName,
         website,

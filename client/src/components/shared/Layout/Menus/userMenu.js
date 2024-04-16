@@ -5,8 +5,8 @@ export const userMenu = [
     icon: "fa-solid fa-warehouse",
   },
   {
-    name: "Donar",
-    path: "/donar",
+    name: "Donor",
+    path: "/donor",
     icon: "fa-solid fa-hand-holding-medical",
   },
   {
@@ -15,8 +15,8 @@ export const userMenu = [
     icon: "fa-solid fa-hospital",
   },
   {
-    name: "Orgnaisation",
-    path: "/orgnaisation",
+    name: "Organization",
+    path: "/organization",
     icon: "fa-sharp fa-solid fa-building-ngo",
   },
 ];

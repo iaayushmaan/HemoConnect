@@ -18,19 +18,19 @@ const Header = () => {
       <nav className="navbar">
         <div className="container-fluid ">
           <div className="navbar-brand h1 ">
-            <BiDonateBlood color="red" /> Blood Bank App
+            <BiDonateBlood color="red" /> HemoConnect
           </div>
           <ul className="navbar-nav flex-row">
             <li className="nav-item mx-3">
               <p className="nav-link">
                 <BiUserCircle /> Welcome{" "}
-                {user?.name || user?.hospitalName || user?.organisationName}
+                {user?.name || user?.hospitalName || user?.organizationName}
                 &nbsp;
                 <span className="badge bg-secondary">{user?.role}</span>
               </p>
             </li>
             {location.pathname === "/" ||
-            location.pathname === "/donar" ||
+            location.pathname === "/donor" ||
             location.pathname === "/hospital" ? (
               <li className="nav-item mx-3">
                 <Link to="/analytics" className="nav-link">
