@@ -18,6 +18,12 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
+//Data Sanitization against NoSQL query injection
+app.use(mongoSanitizer());
+
+//Data Sanitization against site script XSS
+app.use(xss());
+
 //routes
 // 1 test route
 app.use("/api/v1/test", require("./routes/testRoutes"));
