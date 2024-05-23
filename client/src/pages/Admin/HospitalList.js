@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/shared/Layout/Layout";
 import moment from "moment";
 import API from "../../services/API";
+import { toast } from "react-toastify";
 
 const HospitalList = () => {
   const [data, setData] = useState([]);
@@ -23,15 +24,15 @@ const HospitalList = () => {
   }, []);
 
   //DELETE FUNCTION
-  const handelDelete = async (id) => {
+  const handleDelete = async (id) => {
     try {
       let answer = window.prompt(
-        "Are You SUre Want To Delete This Hospital",
+        "Are you sure you want to delete this hospital?",
         "Sure"
       );
       if (!answer) return;
       const { data } = await API.delete(`/admin/delete-donor/${id}`);
-      alert(data?.message);
+      toast.warning(data?.message);
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -60,7 +61,7 @@ const HospitalList = () => {
               <td>
                 <button
                   className="btn btn-danger"
-                  onClick={() => handelDelete(record._id)}
+                  onClick={() => handleDelete(record._id)}
                 >
                   Delete
                 </button>

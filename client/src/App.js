@@ -16,10 +16,23 @@ import DonorList from "./pages/Admin/DonorList";
 import HospitalList from "./pages/Admin/HospitalList";
 import OrgList from "./pages/Admin/OrgList";
 import AdminHome from "./pages/Admin/AdminHome";
+import { Flip } from 'react-toastify';
 function App() {
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Flip}
+          />
       <Routes>
         <Route
           path="/admin"

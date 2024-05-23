@@ -6,6 +6,7 @@ import Layout from "../components/shared/Layout/Layout";
 import Model from "../components/shared/model/Model";
 import API from "../services/API";
 import moment from "moment";
+import { toast } from "react-toastify";
 
 const HomePage = () => {
   const { loading, error, user } = useSelector((state) => state.auth);
@@ -31,7 +32,7 @@ const HomePage = () => {
   return (
     <Layout>
       {user?.role === "admin" && navigate("/admin")}
-      {error && <span>{alert(error)}</span>}
+      {error && <span>{toast.error(error)}</span>}
       {loading ? (
         <Spinner />
       ) : (

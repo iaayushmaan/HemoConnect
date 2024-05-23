@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import API from "../../services/API";
 import { getCurrentUser } from "../../redux/features/auth/authActions";
 import { Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const ProtectedRoute = ({ children }) => {
   const dispatch = useDispatch();
 
