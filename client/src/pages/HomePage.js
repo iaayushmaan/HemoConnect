@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../components/shared/Spinner";
 import Layout from "../components/shared/Layout/Layout";
-import Modal from "../components/shared/modal/Modal";
+import Model from "../components/shared/model/Model";
 import API from "../services/API";
 import moment from "moment";
 
@@ -39,7 +39,7 @@ const HomePage = () => {
           <div className="container">
             <h4
               className="ms-4"
-              data-bs-toggle="modal"
+              data-bs-toggle="model"
               data-bs-target="#staticBackdrop"
               style={{ cursor: "pointer" }}
             >
@@ -71,7 +71,7 @@ const HomePage = () => {
               </tbody>
             </table>
 
-            <Modal />
+            <Model />
           </div>
         </>
       )}

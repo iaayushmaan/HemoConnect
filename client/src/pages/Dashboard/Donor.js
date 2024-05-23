@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/shared/Layout/Layout";
-import moment from "moment";
 import API from "../../services/API";
+import moment from "moment";
 
-const DonorList = () => {
+const Donor = () => {
   const [data, setData] = useState([]);
   //find donor records
   const getDonors = async () => {
     try {
-      const { data } = await API.get("/admin/donor-list");
+      const { data } = await API.get("/inventory/get-donars");
       //   console.log(data);
       if (data?.success) {
-        setData(data?.donorData);
+        setData(data?.donars);
       }
     } catch (error) {
       console.log(error);
@@ -22,22 +22,6 @@ const DonorList = () => {
     getDonors();
   }, []);
 
-  //DELETE FUNCTION
-  const handelDelete = async (id) => {
-    try {
-      let answer = window.prompt(
-        "Are you sure you want to delete this donor?",
-        "Sure"
-      );
-      if (!answer) return;
-      const { data } = await API.delete(`/admin/delete-donor/${id}`);
-      alert(data?.message);
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <Layout>
       <table className="table ">
@@ -47,7 +31,6 @@ const DonorList = () => {
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
             <th scope="col">Date</th>
-            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -57,14 +40,6 @@ const DonorList = () => {
               <td>{record.email}</td>
               <td>{record.phone}</td>
               <td>{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
-              <td>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => handelDelete(record._id)}
-                >
-                  Delete
-                </button>
-              </td>
             </tr>
           ))}
         </tbody>
@@ -73,4 +48,4 @@ const DonorList = () => {
   );
 };
 
-export default DonorList;
+export default Donor;

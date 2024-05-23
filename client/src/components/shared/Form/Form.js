@@ -99,7 +99,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               return (
                 <>
                   <InputType
-                    labelText={"email"}
+                    labelText={"Email"}
                     labelFor={"forEmail"}
                     inputType={"email"}
                     name={"email"}
@@ -152,7 +152,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                   )}
 
                   <InputType
-                    labelText={"email"}
+                    labelText={"Email"}
                     labelFor={"forEmail"}
                     inputType={"email"}
                     name={"email"}
@@ -168,7 +168,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <InputType
-                    labelText={"website"}
+                    labelText={"Website"}
                     labelFor={"forWebsite"}
                     inputType={"text"}
                     name={"website"}
@@ -200,12 +200,12 @@ const Form = ({ formType, submitBtn, formTitle }) => {
         <div className="d-flex flex-row justify-content-between">
           {formType === "login" ? (
             <p>
-              Not registerd yet ? Register
+              Not registered yet? Register
               <Link to="/register"> Here !</Link>
             </p>
           ) : (
             <p>
-              Already User Please
+              Already A User? Please
               <Link to="/login"> Login !</Link>
             </p>
           )}
