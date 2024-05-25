@@ -1,41 +1,46 @@
 
 # HemoConnect
 
-HemoConnect serves as the ultimate connection point between blood donors, healthcare facilities, and blood donation organizations fortracking and managing blood inventory in real time.
-
-
+HemoConnect is the platform linking blood donors, healthcare facilities, and blood donation organizations to track and manage blood inventory in real-time. By ensuring transparency in blood flow, HemoConnect boosts the efficiency and reliability of the blood donation process, leading to improved healthcare outcomes.
 
 ## Screenshots
 
+https://github.com/iaayushmaan/HemoConnect/assets/116517217/93a5eb63-3e3c-40bb-bdd8-07810d7c1c2a
 
-https://github.com/iaayushmaan/HemoConnect/assets/116517217/88963fd0-dca7-428f-9a9c-9343143cbf1b
+![Screenshot 2024-05-25 022357](https://github.com/iaayushmaan/HemoConnect/assets/116517217/2dcd2c1a-f87f-4349-9d81-97b00fdbd57a)
+
+![Screenshot 2024-05-25 022140](https://github.com/iaayushmaan/HemoConnect/assets/116517217/ae729c31-cac5-47b2-b435-bbde196aa037)
+
+![Screenshot 2024-05-25 021706](https://github.com/iaayushmaan/HemoConnect/assets/116517217/faa3bf4d-628d-4b40-b862-9322ed34eccd)
 
 
-![Screenshot (205)](https://github.com/iaayushmaan/HemoConnect/assets/116517217/f5e1fba3-c8d7-480a-8b95-d65b9d4e5f4a)
+![Screenshot 2024-05-25 021635](https://github.com/iaayushmaan/HemoConnect/assets/116517217/2aa7b266-4186-42f8-94d4-df44b10d8d57)
+
 
 
 
 ## Run Locally
 
-Clone the project
+1. Clone the project
 
 ```bash
   git clone https://github.com/iaayushmaan/HemoConnect.git
 ```
 
-Go to the project directory
+2. Go to the project directory
 
 ```bash
   cd ./HemoConnect
 ```
 
-Install dependencies
+3. Install dependencies
 
 ```bash
   npm install
 ```
+4. Create .env file
 
-Start the server
+5. Start the server
 
 ```bash
   npm run dev
@@ -46,7 +51,7 @@ Start the server
 
 **Client:** React, Redux, CSS
 
-**Server:** Node, Express, MongoDb
+**Server:** Node, Express, MongoDB
 
 
 ## Authors
