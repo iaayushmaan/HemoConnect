@@ -19,7 +19,7 @@ const registerController = async (req, res) => {
     //rest data
     const user = new userModel(req.body);
     await user.save();
-    console.log(user)
+    console.log(user);
     return res.status(201).send({
       success: true,
       message: "User Registered Successfully",

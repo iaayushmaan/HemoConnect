@@ -8,7 +8,7 @@ import ProtectedRoute from "./components/Routes/ProtectedRoute";
 import PublicRoute from "./components/Routes/PublicRoute";
 import Donor from "./pages/Dashboard/Donor";
 import Hospitals from "./pages/Dashboard/Hospitals";
-import OrganisationPage from "./pages/Dashboard/OrganisationPage";
+import OrganizationPage from "./pages/Dashboard/OrganizationPage";
 import Consumer from "./pages/Dashboard/Consumer";
 import Donation from "./pages/Donation";
 import Analytics from "./pages/Dashboard/Analytics";
@@ -16,23 +16,23 @@ import DonorList from "./pages/Admin/DonorList";
 import HospitalList from "./pages/Admin/HospitalList";
 import OrgList from "./pages/Admin/OrgList";
 import AdminHome from "./pages/Admin/AdminHome";
-import { Flip } from 'react-toastify';
+import { Flip } from "react-toastify";
 function App() {
   return (
     <>
       <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-          transition={Flip}
-          />
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Flip}
+      />
       <Routes>
         <Route
           path="/admin"
@@ -103,7 +103,7 @@ function App() {
           path="/organization"
           element={
             <ProtectedRoute>
-              <OrganisationPage />
+              <OrganizationPage />
             </ProtectedRoute>
           }
         />

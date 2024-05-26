@@ -9,7 +9,7 @@ const Donor = () => {
   const getDonors = async () => {
     try {
       const { data } = await API.get("/inventory/get-donars");
-      //   console.log(data);
+      console.log(data);
       if (data?.success) {
         setData(data?.donars);
       }
@@ -36,7 +36,13 @@ const Donor = () => {
         <tbody>
           {data?.map((record) => (
             <tr key={record._id}>
-              <td>{record.name || record.organizationName + " (ORG)"}</td>
+              <td>
+                {record.name
+                  ? record.name
+                  : record.hospitalName
+                  ? record.hospitalName + " (H)"
+                  : record.organizationName + " (ORG)"}
+              </td>
               <td>{record.email}</td>
               <td>{record.phone}</td>
               <td>{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>

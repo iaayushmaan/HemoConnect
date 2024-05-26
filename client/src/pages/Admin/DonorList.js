@@ -54,7 +54,13 @@ const DonorList = () => {
         <tbody>
           {data?.map((record) => (
             <tr key={record._id}>
-              <td>{record.name || record.organizationName + " (ORG)"}</td>
+              <td>
+                {record.name
+                  ? record.name
+                  : record.hospitalName
+                  ? record.hospitalName + " (H)"
+                  : record.organizationName + " (ORG)"}
+              </td>
               <td>{record.email}</td>
               <td>{record.phone}</td>
               <td>{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>

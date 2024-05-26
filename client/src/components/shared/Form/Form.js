@@ -132,7 +132,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                   )}
                   {role === "organization" && (
                     <InputType
-                      labelText={"Organisation Name"}
+                      labelText={"Organization Name"}
                       labelFor={"fororganizationName"}
                       inputType={"text"}
                       name={"organizationName"}
@@ -205,7 +205,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             </p>
           ) : (
             <p>
-              Already A User? Please
+              Already a user? Please
               <Link to="/login"> Login !</Link>
             </p>
           )}

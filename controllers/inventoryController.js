@@ -84,7 +84,7 @@ const createInventoryController = async (req, res) => {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Errro In Create Inventory API",
+      message: "Error In Create Inventory API",
       error,
     });
   }
@@ -102,7 +102,7 @@ const getInventoryController = async (req, res) => {
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
-      messaage: "get all records successfully",
+      messaage: "Get all records successfully",
       inventory,
     });
   } catch (error) {
@@ -220,13 +220,13 @@ const getOrganizationController = async (req, res) => {
     const donor = req.body.userId;
     const orgId = await inventoryModel.distinct("organization", { donor });
     //find org
-    const organisations = await userModel.find({
+    const organizations = await userModel.find({
       _id: { $in: orgId },
     });
     return res.status(200).send({
       success: true,
       message: "Org Data Fetched Successfully",
-      organisations,
+      organizations,
     });
   } catch (error) {
     console.log(error);
@@ -243,13 +243,13 @@ const getOrganizationtionForHospitalController = async (req, res) => {
     const hospital = req.body.userId;
     const orgId = await inventoryModel.distinct("organization", { hospital });
     //find org
-    const organisations = await userModel.find({
+    const organizations = await userModel.find({
       _id: { $in: orgId },
     });
     return res.status(200).send({
       success: true,
       message: "Hospital Org Data Fetched Successfully",
-      organisations,
+      organizations,
     });
   } catch (error) {
     console.log(error);
