@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Form from "../../components/shared/Form/Form";
 import { useSelector } from "react-redux";
 import Spinner from "./../../components/shared/Spinner";
@@ -6,6 +6,15 @@ import { toast } from "react-toastify";
 
 const Login = () => {
   const { loading, error } = useSelector((state) => state.auth);
+  useEffect(() => {
+    const notify = () =>
+      toast.info("Check console for Demo Account credentials");
+    console.log(
+      "Role : Organization\nEmail: redcross@org.in\nPassword: 12345678"
+    );
+    notify();
+  }, []);
+
   return (
     <>
       {error && <span>{toast.error(error)}</span>}
